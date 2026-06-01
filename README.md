@@ -1,17 +1,38 @@
-# flickpay
+# FlickPay
 
-A new Flutter project.
+FlickPay is a Flutter reward reveal screen with a dark money-themed interface, animated wallet badge, confetti, and progressive action buttons.
 
-## Getting Started
+## State Management
 
-This project is a starting point for a Flutter application.
+The app currently uses Flutter's built-in local state:
 
-A few resources to get you started if this is your first Flutter project:
+- `StatefulWidget`
+- `setState`
+- `Timer`
+- `AnimationController`
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+No external state management package is needed yet because the current state is only used inside one screen for UI animations and reveal timing. A package like Riverpod, Bloc, Provider, or GetX would make more sense later when the app has shared state such as login, wallet balance, transactions, API loading states, or multi-screen payment flows.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## App Icon And Splash
+
+Custom FlickPay app icon and splash assets can be generated from:
+
+```sh
+python3 tools/generate_brand_assets.py
+```
+
+The generated assets replace the default Flutter logo across Android, iOS, web, macOS, and Windows.
+
+## Run
+
+```sh
+flutter pub get
+flutter run
+```
+
+## Check
+
+```sh
+flutter analyze
+flutter test
+```
