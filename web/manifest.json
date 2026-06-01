@@ -1,11 +1,11 @@
 {
-    "name": "flickpay",
-    "short_name": "flickpay",
+    "name": "FlickPay",
+    "short_name": "FlickPay",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#15161D",
+    "theme_color": "#E4D50A",
+    "description": "FlickPay money rewards.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
