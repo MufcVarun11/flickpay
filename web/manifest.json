@@ -1,11 +1,11 @@
 {
-    "name": "FlickPay",
-    "short_name": "FlickPay",
+    "name": "varun nair",
+    "short_name": "varun nair",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#15161D",
     "theme_color": "#E4D50A",
-    "description": "FlickPay money rewards.",
+    "description": "varun nair money rewards.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

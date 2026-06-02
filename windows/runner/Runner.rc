@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "flicktv.flickpay" "\0"
-            VALUE "FileDescription", "flickpay" "\0"
+            VALUE "CompanyName", "flicktv.varunnair" "\0"
+            VALUE "FileDescription", "varun nair" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "flickpay" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2026 flicktv.flickpay. All rights reserved." "\0"
-            VALUE "OriginalFilename", "flickpay.exe" "\0"
-            VALUE "ProductName", "flickpay" "\0"
+            VALUE "InternalName", "varun_nair" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2026 flicktv.varunnair. All rights reserved." "\0"
+            VALUE "OriginalFilename", "varun_nair.exe" "\0"
+            VALUE "ProductName", "varun nair" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -42,7 +42,7 @@ class MoneyActions extends StatelessWidget {
             imagePath: refundImagePath,
             title: 'Real-time refunds',
             subtitle:
-                'No need to wait for refunds. FlickPay refunds are instant!',
+                'No need to wait for refunds. varun nair refunds are instant!',
           ),
         ),
         const SizedBox(height: 14),

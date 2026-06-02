@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flickpay/app/flick_money_app.dart';
+import 'package:varun_nair/app/flick_money_app.dart';
 
 void main() {
   testWidgets('reward reveal screen renders the money moment', (
@@ -9,7 +9,7 @@ void main() {
     await tester.pumpWidget(const FlickMoneyApp());
     await tester.pump(const Duration(seconds: 4));
 
-    expect(find.text('flickpay'), findsOneWidget);
+    expect(find.text('varun nair'), findsOneWidget);
     expect(find.text('MONEY'), findsOneWidget);
     expect(find.text('Single tap payments'), findsOneWidget);
     expect(find.text('Zero failures'), findsOneWidget);
