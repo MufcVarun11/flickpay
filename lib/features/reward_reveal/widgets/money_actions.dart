@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class MoneyActions extends StatelessWidget {
-  const MoneyActions({required this.visibleCount, super.key});
+  const MoneyActions({
+    required this.visibleCount,
+    required this.availableHeight,
+    super.key,
+  });
 
   static const singleTapImagePath = 'assets/images/single tap.png';
   static const failureImagePath = 'assets/images/failure icon.png';
@@ -13,9 +17,20 @@ class MoneyActions extends StatelessWidget {
   ];
 
   final int visibleCount;
+  final double availableHeight;
+
+  static const _minFooterGap = 26.0;
+  static const _contentBeforeFooterHeight = 360.0;
+  static const _footerHeight = 68.0;
 
   @override
   Widget build(BuildContext context) {
+    final footerGap =
+        (availableHeight - _contentBeforeFooterHeight - _footerHeight).clamp(
+          _minFooterGap,
+          double.infinity,
+        );
+
     return Column(
       children: [
         _StaggeredReveal(
@@ -55,7 +70,7 @@ class MoneyActions extends StatelessWidget {
           visible: visibleCount >= 5,
           child: const _GiftCardTile(),
         ),
-        const SizedBox(height: 26),
+        SizedBox(height: footerGap),
         _StaggeredReveal(
           visible: visibleCount >= 6,
           child: const _FooterMessage(),

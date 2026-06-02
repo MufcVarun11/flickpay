@@ -40,7 +40,7 @@ class RewardHero extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                'varun nair',
+                'FlickPay',
                 style: TextStyle(
                   color: Colors.white.withValues(alpha: .74),
                   fontSize: 21,

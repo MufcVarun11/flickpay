@@ -113,6 +113,8 @@ class _RewardRevealScreenState extends State<RewardRevealScreen>
                                   child: RepaintBoundary(
                                     child: MoneyActions(
                                       visibleCount: _visibleActionCount,
+                                      availableHeight:
+                                          listConstraints.maxHeight,
                                     ),
                                   ),
                                 ),
