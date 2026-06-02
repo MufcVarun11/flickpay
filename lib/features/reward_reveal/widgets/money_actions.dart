@@ -3,6 +3,15 @@ import 'package:flutter/material.dart';
 class MoneyActions extends StatelessWidget {
   const MoneyActions({required this.visibleCount, super.key});
 
+  static const singleTapImagePath = 'assets/images/single tap.png';
+  static const failureImagePath = 'assets/images/failure icon.png';
+  static const refundImagePath = 'assets/images/refund icon.png';
+  static const benefitImagePaths = [
+    singleTapImagePath,
+    failureImagePath,
+    refundImagePath,
+  ];
+
   final int visibleCount;
 
   @override
@@ -12,7 +21,7 @@ class MoneyActions extends StatelessWidget {
         _StaggeredReveal(
           visible: visibleCount >= 1,
           child: const _BenefitCard(
-            imagePath: 'assets/images/single tap.png',
+            imagePath: singleTapImagePath,
             title: 'Single tap payments',
             subtitle: 'Enjoy seamless payments without the wait for OTPs',
           ),
@@ -21,7 +30,7 @@ class MoneyActions extends StatelessWidget {
         _StaggeredReveal(
           visible: visibleCount >= 2,
           child: const _BenefitCard(
-            imagePath: 'assets/images/failure icon.png',
+            imagePath: failureImagePath,
             title: 'Zero failures',
             subtitle: 'Zero payment failures ensure you never miss an order',
           ),
@@ -30,7 +39,7 @@ class MoneyActions extends StatelessWidget {
         _StaggeredReveal(
           visible: visibleCount >= 3,
           child: const _BenefitCard(
-            imagePath: 'assets/images/refund icon.png',
+            imagePath: refundImagePath,
             title: 'Real-time refunds',
             subtitle:
                 'No need to wait for refunds. FlickPay refunds are instant!',
@@ -72,7 +81,7 @@ class _StaggeredReveal extends StatelessWidget {
         offset: visible ? Offset.zero : const Offset(0, .08),
         duration: const Duration(milliseconds: 280),
         curve: Curves.easeOutCubic,
-        child: child,
+        child: RepaintBoundary(child: child),
       ),
     );
   }
@@ -100,9 +109,9 @@ class _BenefitCard extends StatelessWidget {
         border: Border.all(color: Colors.white.withValues(alpha: .08)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: .16),
-            blurRadius: 16,
-            offset: const Offset(0, 8),
+            color: Colors.black.withValues(alpha: .12),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
           ),
         ],
       ),
@@ -153,6 +162,9 @@ class _IconTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final imageCacheWidth = (36 * MediaQuery.devicePixelRatioOf(context))
+        .round();
+
     return Container(
       width: 48,
       height: 48,
@@ -167,7 +179,8 @@ class _IconTile extends StatelessWidget {
           fit: BoxFit.contain,
           color: Colors.white,
           colorBlendMode: BlendMode.srcIn,
-          filterQuality: FilterQuality.medium,
+          cacheWidth: imageCacheWidth,
+          filterQuality: FilterQuality.low,
         ),
       ),
     );

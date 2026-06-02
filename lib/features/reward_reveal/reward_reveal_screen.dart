@@ -21,6 +21,7 @@ class _RewardRevealScreenState extends State<RewardRevealScreen>
   late final AnimationController _confettiController;
   bool _heroVisible = false;
   bool _headerSettled = false;
+  bool _imagesPrecachingStarted = false;
   int _visibleActionCount = 0;
 
   @override
@@ -39,6 +40,17 @@ class _RewardRevealScreenState extends State<RewardRevealScreen>
     _stage(const Duration(milliseconds: 1600), () => _visibleActionCount = 4);
     _stage(const Duration(milliseconds: 1760), () => _visibleActionCount = 5);
     _stage(const Duration(milliseconds: 2020), () => _visibleActionCount = 6);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_imagesPrecachingStarted) return;
+    _imagesPrecachingStarted = true;
+
+    for (final imagePath in MoneyActions.benefitImagePaths) {
+      precacheImage(AssetImage(imagePath), context);
+    }
   }
 
   void _stage(Duration delay, VoidCallback update) {
@@ -68,14 +80,9 @@ class _RewardRevealScreenState extends State<RewardRevealScreen>
         children: [
           const Backdrop(),
           RepaintBoundary(
-            child: AnimatedBuilder(
-              animation: _confettiController,
-              builder: (context, _) {
-                return CustomPaint(
-                  painter: ConfettiPainter(progress: _confettiController.value),
-                  child: const SizedBox.expand(),
-                );
-              },
+            child: CustomPaint(
+              painter: ConfettiPainter(repaint: _confettiController),
+              child: const SizedBox.expand(),
             ),
           ),
           SafeArea(

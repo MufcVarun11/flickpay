@@ -3,9 +3,11 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 class ConfettiPainter extends CustomPainter {
-  ConfettiPainter({required this.progress});
+  ConfettiPainter({required Animation<double> repaint})
+    : _progress = repaint,
+      super(repaint: repaint);
 
-  final double progress;
+  final Animation<double> _progress;
 
   static const List<Color> _colors = [
     Color(0xFFE4D50A),
@@ -18,6 +20,7 @@ class ConfettiPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    final progress = _progress.value;
     final opacity = (1 - ((progress - .68) / .32)).clamp(0.0, 1.0);
     if (opacity == 0) return;
 
@@ -54,6 +57,6 @@ class ConfettiPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant ConfettiPainter oldDelegate) {
-    return oldDelegate.progress != progress;
+    return oldDelegate._progress != _progress;
   }
 }
